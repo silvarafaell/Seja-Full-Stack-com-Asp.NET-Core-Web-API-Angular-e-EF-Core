@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ProAgil.API.Controllers
+namespace ProAgil.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("site/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
     {

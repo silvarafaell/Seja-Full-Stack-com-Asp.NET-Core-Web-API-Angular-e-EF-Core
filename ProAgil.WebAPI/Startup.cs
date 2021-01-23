@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace ProAgil.API
+namespace ProAgil.WebAPI
 {
     public class Startup
     {
@@ -41,7 +41,7 @@ namespace ProAgil.API
                 app.UseHsts();
             }
 
-            //app.UseHttpsRedirection();
+          //  app.UseHttpsRedirection();
             app.UseMvc();
         }
     }
