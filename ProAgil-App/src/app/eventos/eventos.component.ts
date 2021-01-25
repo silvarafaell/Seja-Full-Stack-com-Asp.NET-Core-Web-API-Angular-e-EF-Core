@@ -25,5 +25,4 @@ export class EventosComponent implements OnInit {
       console.log(error);
      });
   }
-
 }
