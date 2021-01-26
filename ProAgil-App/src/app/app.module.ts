@@ -8,7 +8,7 @@ import { EventosComponent } from './eventos/eventos.component';
 import { NavComponent } from './nav/nav.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
       EventosComponent,
       NavComponent
