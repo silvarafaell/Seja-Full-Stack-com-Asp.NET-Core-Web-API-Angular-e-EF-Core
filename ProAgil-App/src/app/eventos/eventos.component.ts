@@ -8,17 +8,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventosComponent implements OnInit {
 
+  // tslint:disable-next-line:variable-name
+  _filtroLista!: string;
+  get filtroLista(): string {
+    return this._filtroLista;
+  }
+  set filtroLista(value: string) {
+    this._filtroLista = value;
+    this.eventosFiltrados = this.filtroLista ? this.filtrarEventos(this.filtroLista) : this.eventos;
+  }
+
+  eventosFiltrados: any = [];
   eventos: any = [];
   imagemLargura = 50;
   imagemMargem = 2;
   mostrarImagem = false;
-  filtroLista = '';
 
   constructor(private http: HttpClient) { }
 
   // tslint:disable-next-line:typedef
   ngOnInit() {
     this.getEventos();
+  }
+
+  filtrarEventos(filtrarPor: string): any {
+    filtrarPor = filtrarPor.toLocaleLowerCase();
+    return this.eventos.filter(
+      (      evento: { tema: string; }) => evento.tema.toLocaleLowerCase().indexOf(filtrarPor) !== -1
+    );
   }
 
   // tslint:disable-next-line:typedef
@@ -30,6 +47,7 @@ export class EventosComponent implements OnInit {
   getEventos() {
     this.http.get('http://localhost:5000/api/values').subscribe(response => {
       this.eventos = response;
+      this.eventosFiltrados = this.eventos;
     }, error => {
       console.log(error);
      });
