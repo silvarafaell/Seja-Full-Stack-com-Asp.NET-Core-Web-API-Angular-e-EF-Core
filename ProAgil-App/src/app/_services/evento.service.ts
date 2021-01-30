@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Evento } from '../_models/Evento';
 
 @Injectable()
 export class EventoService {
@@ -8,8 +10,18 @@ export class EventoService {
 constructor(private http: HttpClient) { }
 
     // tslint:disable-next-line: typedef
-    getEvento() {
-        return this.http.get(this.baseURL);
+    getAllEvento(): Observable<Evento[]>{
+        return this.http.get<Evento[]>(this.baseURL);
     }
+
+    // tslint:disable-next-line: typedef
+    getEventoByTema(tema: string): Observable<Evento[]>{
+        return this.http.get<Evento[]>(`${this.baseURL}/getByTema/${tema}`);
+    }
+
+    // tslint:disable-next-line: typedef
+    getEventoById(id: number): Observable<Evento[]>{
+      return this.http.get<Evento[]>(`${this.baseURL}/${id}`);
+  }
 
 }
