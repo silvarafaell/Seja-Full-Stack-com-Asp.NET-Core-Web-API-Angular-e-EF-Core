@@ -8,12 +8,14 @@ import { EventosComponent } from './eventos/eventos.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
 import { EventoService } from './_services/evento.service';
+import { DateTimeFormatPipePipe } from './_helps/DateTimeFormatPipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-      EventosComponent,
-      NavComponent
+    EventosComponent,
+    NavComponent,
+    DateTimeFormatPipePipe
    ],
   imports: [
     BrowserModule,
