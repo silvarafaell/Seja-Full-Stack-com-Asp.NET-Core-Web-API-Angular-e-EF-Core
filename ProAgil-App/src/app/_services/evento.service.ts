@@ -22,6 +22,11 @@ constructor(private http: HttpClient) { }
     // tslint:disable-next-line: typedef
     getEventoById(id: number): Observable<Evento[]>{
       return this.http.get<Evento[]>(`${this.baseURL}/${id}`);
-  }
+    }
+
+    // tslint:disable-next-line: typedef
+    postEvento(evento: Evento) {
+      return this.http.post(this.baseURL, evento);
+    }
 
 }

@@ -17,6 +17,7 @@ export class EventosComponent implements OnInit {
 
   eventosFiltrados!: Evento[];
   eventos!: Evento[];
+  evento!: Evento;
   imagemLargura = 50;
   imagemMargem = 2;
   mostrarImagem = false;
@@ -43,11 +44,14 @@ export class EventosComponent implements OnInit {
   }
 
 
-  openModal(template: any): void{
+  // tslint:disable-next-line: typedef
+  openModal(template: any) {
+    this.registerForm.reset();
     template.show();
   }
 
-  ngOnInit(): void {
+  // tslint:disable-next-line: typedef
+  ngOnInit() {
     this.validation();
     this.getEventos();
   }
@@ -59,14 +63,15 @@ export class EventosComponent implements OnInit {
     );
   }
 
-  alternarImagem(): void {
+  // tslint:disable-next-line: typedef
+  alternarImagem() {
     this.mostrarImagem = !this.mostrarImagem;
   }
 
-  validation(): void {
+  // tslint:disable-next-line: typedef
+  validation() {
     this.registerForm = this.fb.group({
-      tema: ['',
-      [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
+      tema: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
       local: ['', Validators.required],
       dataEvento: ['', Validators.required],
       imagemURL: ['', Validators.required],
@@ -77,11 +82,24 @@ export class EventosComponent implements OnInit {
 
   }
 
-  salvarAlteracao(): void {
-
+  // tslint:disable-next-line: typedef
+  salvarAlteracao(template: any) {
+    if (this.registerForm.valid) {
+      this.evento = Object.assign({}, this.registerForm.value);
+      this.eventoService.postEvento(this.evento).subscribe(
+        (novoEvento: Evento) => {
+          console.log(novoEvento);
+          template.hide();
+          this.getEventos();
+        }, error => {
+          console.log(error);
+        }
+      );
+    }
   }
 
-  getEventos(): void {
+  // tslint:disable-next-line: typedef
+  getEventos() {
     this.eventoService.getAllEvento().subscribe(
      // tslint:disable-next-line:variable-name
      (_eventos: Evento[]) => {
