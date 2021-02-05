@@ -14,8 +14,8 @@ import { AppComponent } from './app.component';
 import { EventosComponent } from './eventos/eventos.component';
 import { NavComponent } from './nav/nav.component';
 
-
 import { DateTimeFormatPipePipe } from './_helps/DateTimeFormatPipe.pipe';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 @NgModule({
