@@ -20,7 +20,6 @@ export class EventosComponent implements OnInit {
   imagemLargura = 50;
   imagemMargem = 2;
   mostrarImagem = false;
-  modalRef!: BsModalRef;
   registerForm!: FormGroup;
 
   // tslint:disable-next-line:variable-name
@@ -44,8 +43,8 @@ export class EventosComponent implements OnInit {
   }
 
 
-  openModal(template: TemplateRef<any>): void{
-    this.modalRef = this.modalService.show(template);
+  openModal(template: any): void{
+    template.show();
   }
 
   ngOnInit(): void {
