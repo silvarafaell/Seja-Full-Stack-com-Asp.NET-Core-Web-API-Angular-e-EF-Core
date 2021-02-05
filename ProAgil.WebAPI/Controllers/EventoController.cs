@@ -64,7 +64,7 @@ namespace ProAgil.WebAPI.Controllers
 
         }
 
-        [HttpPost]
+        [HttpPost("{EventoId}")]
         public async Task<ActionResult> Post(Evento model)
         {
             try
@@ -87,7 +87,7 @@ namespace ProAgil.WebAPI.Controllers
 
         }
 
-        [HttpPut]
+        [HttpPut("{EventoId}")]
         public async Task<ActionResult> Put(int EventoId, Evento model)
         {
             try
