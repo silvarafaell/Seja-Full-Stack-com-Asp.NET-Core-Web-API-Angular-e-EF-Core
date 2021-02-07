@@ -64,7 +64,7 @@ namespace ProAgil.WebAPI.Controllers
 
         }
 
-        [HttpPost("{EventoId}")]
+        [HttpPost]
         public async Task<ActionResult> Post(Evento model)
         {
             try

@@ -69,7 +69,7 @@
     </td>
   </tr>
 </tbody>
-<tfoot *ngIf="!eventos.length">
+<tfoot *ngIf="!eventos">
   <tr>
     <td colspan="7" class="text-center">
       <h4>
@@ -85,7 +85,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 id="dialog-sizes-name1" class="modal-title pull-left">Large modal</h4>
+        <h4 id="dialog-sizes-name1" class="modal-title pull-left">Large moda</h4>
         <button type="button" class="close pull-right" (click)="template.hide()" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -143,7 +143,7 @@
           <div class="form-row">
             <div class="form-group col-md-3">
               <label>Qtd Pessoas</label>
-              <input type="text" 
+              <input type="number" 
               [ngClass]="{'is-invalid': registerForm.controls['qtdPessoas'].errors 
               && registerForm.controls['qtdPessoas'].touched}"
               class="form-control is-invalid" formControlName="qtdPessoas" placeholder="">

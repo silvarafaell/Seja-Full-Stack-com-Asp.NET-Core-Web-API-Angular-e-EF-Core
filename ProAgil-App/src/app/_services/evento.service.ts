@@ -26,7 +26,7 @@ constructor(private http: HttpClient) { }
 
     // tslint:disable-next-line: typedef
     postEvento(evento: Evento) {
-      return this.http.post(this.baseURL, evento);
+      return this.http.post<Evento>(this.baseURL, evento);
     }
 
 }
