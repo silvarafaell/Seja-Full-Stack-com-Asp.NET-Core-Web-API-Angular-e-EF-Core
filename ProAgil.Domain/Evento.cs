@@ -5,7 +5,7 @@ namespace ProAgil.Domain
 {
     public class Evento
     {
-        public int Id { get; private set; }
+        public int Id { get; set; }
         public string Local { get; private set; }
         public DateTime? DataEvento { get; private set; }
         public string Tema { get; private set; }
